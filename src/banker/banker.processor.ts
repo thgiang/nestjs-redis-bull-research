@@ -8,8 +8,18 @@ export class BankerProcessor {
 
   @Process('banker_job_name')
   handleTranscode(job: Job) {
-    this.logger.debug(
-      'Process time ' + Date.now() + ': ' + JSON.stringify(job.data),
-    );
+    //const delay = Math.floor(Math.random() * 3000);
+    const delay = 2435;
+    setTimeout(() => {
+      const text =
+        'Process time ' + Date.now() / 1000 + ': ' + JSON.stringify(job.data);
+      if (job.data.groupKey === 'hehe0') {
+        this.logger.debug(text);
+      } else if (job.data.groupKey === 'hehe1') {
+        this.logger.warn(text);
+      } else {
+        this.logger.log(text);
+      }
+    }, delay);
   }
 }

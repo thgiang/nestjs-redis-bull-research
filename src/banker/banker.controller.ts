@@ -11,7 +11,7 @@ export class BankerController {
     for (let i = 0; i < 20; i++) {
       const userId = 1234;
       const time = Date.now();
-      const queueGroupKey = Math.floor(Math.random() * 5);
+      const queueGroupKey = Math.floor(Math.random() * 3);
       await this.bankerQueue.add('banker_job_name', {
         groupKey: 'hehe' + queueGroupKey,
         userId: userId,
