@@ -8,12 +8,15 @@ export class BankerController {
 
   @Get('add')
   async add() {
-    const userId = 1234;
-    const time = Date.now();
-    await this.bankerQueue.add('banker_job_name', {
-      user_id: userId,
-      time: time,
-    });
+    for (let i = 0; i < 10; i++) {
+      const userId = 1234;
+      const time = Date.now();
+      await this.bankerQueue.add('banker_job_name', {
+        groupKey: 'hehe',
+        userId: userId,
+        requestTime: time,
+      });
+    }
     return 'Added job!';
   }
 }

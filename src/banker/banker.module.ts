@@ -7,6 +7,11 @@ import { BankerController } from './banker.controller';
   imports: [
     BullModule.registerQueue({
       name: 'banker',
+      limiter: {
+        max: 1,
+        duration: 500,
+        groupKey: 'groupKey',
+      },
     }),
   ],
   controllers: [BankerController],

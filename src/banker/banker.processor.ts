@@ -8,8 +8,8 @@ export class BankerProcessor {
 
   @Process('banker_job_name')
   handleTranscode(job: Job) {
-    this.logger.debug('Job starting');
-    this.logger.debug(job.data);
-    this.logger.debug('Job completed');
+    this.logger.debug(
+      'Process time ' + Date.now() + ': ' + JSON.stringify(job.data),
+    );
   }
 }
